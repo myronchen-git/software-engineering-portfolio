@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 import { useEffect, useState } from 'react';
 
-import file from '../../../portfolio_info/about.txt';
+import file from '/portfolio_info/about.txt';
 
 // ==================================================
 

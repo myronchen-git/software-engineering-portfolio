@@ -1,9 +1,9 @@
 import { GlobalStyles } from '@mui/material';
 
-import About from './components/About/About';
-import NavBar from './components/NavBar/NavBar';
+import About from '/src/components/About/About';
+import NavBar from '/src/components/NavBar/NavBar';
 
-import appStyles from './appCss';
+import appStyles from '/src/appCss';
 
 // ==================================================
 
