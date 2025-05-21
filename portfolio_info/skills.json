@@ -1,0 +1,15 @@
+{
+  "Languages": ["CSS3", "HTML5", "Java", "JavaScript", "Python", "SQL"],
+  "Frameworks & Libraries": [
+    "Axios",
+    "Bootstrap",
+    "Express",
+    "Flask",
+    "Jest",
+    "Node.js",
+    "React",
+    "SQLAlchemy",
+    "jQuery"
+  ],
+  "Tools & Technologies": ["Git", "PostgreSQL", "Vite.js"]
+}
