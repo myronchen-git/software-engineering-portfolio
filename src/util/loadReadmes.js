@@ -12,8 +12,8 @@ import {
 // ==================================================
 
 const md = markdownit('commonmark');
-const repositoriesPath = './repositories';
-const readmeDataPath = './readmes';
+const repositoriesPath = 'repositories';
+const readmeDataPath = 'readmes';
 
 // --------------------------------------------------
 
@@ -23,7 +23,7 @@ function loadReadmes() {
   // for each folder in repositories
   for (const repositoryName of repositoryNames) {
     const filePath = `${repositoriesPath}/${repositoryName}/README.md`;
-    const readme = parseReadme(filePath);
+    const readme = parseReadme(filePath, repositoryName);
     storeReadmeData(repositoryName, readme);
   }
 }
@@ -134,14 +134,15 @@ function parseReadme(path) {
  * Parses a README for specific sections and puts their text, images, and other
  * metadata into an Object.  Current sections are the first section (brief
  * overview), Overview, Features, and Tech Stack.  Also includes locations of
- * images relative to the README.
+ * images relative to the project root.
  *
  * @param {String} filePath - Relative path from the root of this project to the
  *  README.md file.
+ * @param {String} repositoryName - Name of the repository.
  * @returns {Object} An Object with properties "first", "Overview", "Features",
  *  "Tech Stack", and "imgs"; which are select representations of a README.
  */
-function parseReadme(filePath) {
+function parseReadme(filePath, repositoryName) {
   const fileText = readFileSync(filePath, 'utf8');
   const htmlArray = md.render(fileText).split('\n');
 
@@ -178,78 +179,80 @@ function parseReadme(filePath) {
   readme = { ...readme, ...readmeParts };
 
   return readme;
-}
 
-/**
- * Further parses a README's first section's data, so that it can more easily be
- * processed by React components.  This removes the <img> tags and only keeps
- * <p> tag content in the "first" property of the readme Object.  The <img>
- * tags are broken up and placed into their own property in the readme Object.
- *
- * @param {Object} readme - The initial, unfinished readme data after parsing
- *  a README.
- * @returns {
- *  {
- *    first: String,
- *    imgs: { src: String, alt: String }[]
- *  }
- * } An Object that contains the final version of the first section and <img>
- *  tag src and alt attributes.
- */
-function parseFirstSection(readme) {
-  const newReadmeProperties = {};
+  /**
+   * Further parses a README's first section's data, so that it can more easily
+   * be processed by React components.  This removes the <img> tags and only
+   * keeps <p> tag content in the "first" property of the readme Object.  The
+   * <img> tags are broken up and placed into their own property in the readme
+   * Object.
+   *
+   * @param {Object} readme - The initial, unfinished readme data after parsing
+   *  a README.
+   * @returns {
+   *  {
+   *    first: String,
+   *    imgs: { src: String, alt: String }[]
+   *  }
+   * } An Object that contains the final version of the first section and <img>
+   *  tag src and alt attributes.
+   */
+  function parseFirstSection(readme) {
+    const newReadmeProperties = {};
 
-  newReadmeProperties.imgs = getImgs(readme.first);
-  newReadmeProperties.first = cleanFirstSection(readme.first);
+    newReadmeProperties.imgs = getImgs(readme.first);
+    newReadmeProperties.first = cleanFirstSection(readme.first);
 
-  return newReadmeProperties;
-}
-
-/**
- * Finds <img> tags in a String and extracts the src and alt attributes for
- * each.  The String is supposed to be a README's first section in HTML form.
- *
- * @param {String} text - A README's first section's raw HTML text.
- * @returns {
- *  { src: String, alt: String }[]
- * } A list of image data containing src and alt attributes.
- */
-function getImgs(text) {
-  const imgs = [];
-  const matches = text.matchAll(/<img[^>]+>/g);
-
-  for (const match of matches) {
-    const imgString = match[0];
-    const img = {};
-
-    const srcMatches = imgString.match(/src="([^"]+)"/);
-    img.src = srcMatches[1];
-
-    const altMatches = imgString.match(/alt="([^"]+)"/);
-    img.alt = altMatches[1];
-
-    imgs.push(img);
+    return newReadmeProperties;
   }
 
-  return imgs;
-}
+  /**
+   * Finds <img> tags in a String and extracts the src and alt attributes for
+   * each.  The String is supposed to be a README's first section in HTML form.
+   *
+   * @param {String} text - A README's first section's raw HTML text.
+   * @returns {
+   *  { src: String, alt: String }[]
+   *  } A list of image data containing src and alt attributes.  src path is
+   *  relative to project root.
+   */
+  function getImgs(text) {
+    const imgs = [];
+    const matches = text.matchAll(/<img[^>]+>/g);
 
-/**
- * Selects only the <p> tag content from a String.  The String is supposed to be
- * a README's first section in HTML form.
- *
- * @param {String} text - A README's first section's raw HTML text.
- * @returns {String} A String containing only <p> tags and their content.
- */
-function cleanFirstSection(text) {
-  const matches = text.matchAll(/<p>.*?<\/p>/g);
+    for (const match of matches) {
+      const imgString = match[0];
+      const img = {};
 
-  let str = '';
-  for (const match of matches) {
-    str += match[0];
+      const srcMatches = imgString.match(/src="([^"]+)"/);
+      img.src = `${repositoriesPath}/${repositoryName}/${srcMatches[1]}`;
+
+      const altMatches = imgString.match(/alt="([^"]+)"/);
+      img.alt = altMatches[1];
+
+      imgs.push(img);
+    }
+
+    return imgs;
   }
 
-  return str;
+  /**
+   * Selects only the <p> tag content from a String.  The String is supposed to
+   * be a README's first section in HTML form.
+   *
+   * @param {String} text - A README's first section's raw HTML text.
+   * @returns {String} A String containing only <p> tags and their content.
+   */
+  function cleanFirstSection(text) {
+    const matches = text.matchAll(/<p>.*?<\/p>/g);
+
+    let str = '';
+    for (const match of matches) {
+      str += match[0];
+    }
+
+    return str;
+  }
 }
 
 /**
@@ -271,7 +274,3 @@ function storeReadmeData(repositoryName, readme) {
 // ==================================================
 
 loadReadmes();
-
-// ==================================================
-
-export { parseReadme };
