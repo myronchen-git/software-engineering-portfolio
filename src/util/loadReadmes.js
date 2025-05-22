@@ -176,62 +176,50 @@ function parseReadme(filePath, repositoryName) {
   }
 
   const readmeParts = parseFirstSection(readme);
-  readme = { ...readme, ...readmeParts };
+  const imgs = getImgs();
+  readme = { ...readme, ...readmeParts, imgs };
 
   return readme;
 
   /**
    * Further parses a README's first section's data, so that it can more easily
-   * be processed by React components.  This removes the <img> tags and only
-   * keeps <p> tag content in the "first" property of the readme Object.  The
-   * <img> tags are broken up and placed into their own property in the readme
-   * Object.
+   * be processed by React components.  This only keeps <p> tag content in the
+   * "first" property of the readme Object.
    *
    * @param {Object} readme - The initial, unfinished readme data after parsing
    *  a README.
-   * @returns {
-   *  {
-   *    first: String,
-   *    imgs: { src: String, alt: String }[]
-   *  }
-   * } An Object that contains the final version of the first section and <img>
-   *  tag src and alt attributes.
+   * @returns {{ first: String }} An Object that contains the final version of
+   *  the first section.
    */
   function parseFirstSection(readme) {
     const newReadmeProperties = {};
 
-    newReadmeProperties.imgs = getImgs(readme.first);
     newReadmeProperties.first = cleanFirstSection(readme.first);
 
     return newReadmeProperties;
   }
 
   /**
-   * Finds <img> tags in a String and extracts the src and alt attributes for
-   * each.  The String is supposed to be a README's first section in HTML form.
+   * Gets data from the indexImages.json file from within readme_files and
+   * changes the src path to be from the project root.
    *
-   * @param {String} text - A README's first section's raw HTML text.
-   * @returns {
-   *  { src: String, alt: String }[]
-   *  } A list of image data containing src and alt attributes.  src path is
-   *  relative to project root.
+   * @returns {Promise<{
+   *  primary: { src: String, alt: String },
+   *  all: { src: String, alt: String }[]
+   *  }>} A list of image data containing src and alt attributes.  src path is
+   *  relative to project root.  The primary key is for the primary image that
+   *  will be used to represent the project.  The all key is for all images that
+   *  will be used to describe the project, in order of presentation.
    */
-  function getImgs(text) {
-    const imgs = [];
-    const matches = text.matchAll(/<img[^>]+>/g);
+  function getImgs() {
+    const pathToDir = `${repositoriesPath}/${repositoryName}/readme_files/`;
 
-    for (const match of matches) {
-      const imgString = match[0];
-      const img = {};
+    const imgs = JSON.parse(readFileSync(pathToDir + 'indexImages.json'));
 
-      const srcMatches = imgString.match(/src="([^"]+)"/);
-      img.src = `${repositoriesPath}/${repositoryName}/${srcMatches[1]}`;
-
-      const altMatches = imgString.match(/alt="([^"]+)"/);
-      img.alt = altMatches[1];
-
-      imgs.push(img);
-    }
+    imgs.primary.src = pathToDir + imgs.primary.src;
+    imgs.all.forEach((img) => {
+      img.src = pathToDir + img.src;
+    });
 
     return imgs;
   }
