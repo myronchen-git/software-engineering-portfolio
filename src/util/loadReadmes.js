@@ -134,25 +134,26 @@ function parseReadme(path) {
  * Parses a README for specific sections and puts their text, images, and other
  * metadata into an Object.  Current sections are the first section (brief
  * overview), Overview, Features, and Tech Stack.  Also includes locations of
- * images relative to the project root.
+ * images relative to the project root and links.
  *
  * @param {String} filePath - Relative path from the root of this project to the
  *  README.md file.
  * @param {String} repositoryName - Name of the repository.
- * @returns {Object} An Object with properties "first", "Overview", "Features",
- *  "Tech Stack", and "imgs"; which are select representations of a README.
+ * @returns {Object} An Object containing data from a README, such as the first
+ *  section, Overview, Features, Tech Stack, and images.
  */
 function parseReadme(filePath, repositoryName) {
   const fileText = readFileSync(filePath, 'utf8');
   const htmlArray = md.render(fileText).split('\n');
 
-  let readme = {};
+  const sections = {};
+  let projectName = null;
   let currentSection = null;
   let sectionText = '';
 
   for (const line of htmlArray) {
     if (line.startsWith('<h2>') && currentSection) {
-      readme[currentSection] = sectionText;
+      sections[currentSection] = sectionText;
       sectionText = '';
 
       if (currentSection === 'Tech Stack') break;
@@ -160,7 +161,7 @@ function parseReadme(filePath, repositoryName) {
     }
 
     if (line.startsWith('<h1>')) {
-      readme.projectName = line.match(/<h1>(.*?)<\/h1>/)[1];
+      projectName = line.match(/<h1>(.*?)<\/h1>/)[1];
       currentSection = 'first';
     } else if (line === '<h2>Overview</h2>') {
       currentSection = 'Overview';
@@ -175,11 +176,11 @@ function parseReadme(filePath, repositoryName) {
     }
   }
 
-  const readmeFirstSectionParts = parseFirstSection(readme);
+  const readmeFirstSectionParts = parseFirstSection(sections);
   const imgs = getImgs();
-  readme = { ...readme, ...readmeFirstSectionParts, imgs };
 
-  return readme;
+  sections.first = readmeFirstSectionParts.first;
+  return { projectName, sections, links: readmeFirstSectionParts.links, imgs };
 
   /**
    * Further parses a README's first section's data, so that it can more easily
