@@ -175,26 +175,42 @@ function parseReadme(filePath, repositoryName) {
     }
   }
 
-  const readmeParts = parseFirstSection(readme);
+  const readmeFirstSectionParts = parseFirstSection(readme);
   const imgs = getImgs();
-  readme = { ...readme, ...readmeParts, imgs };
+  readme = { ...readme, ...readmeFirstSectionParts, imgs };
 
   return readme;
 
   /**
    * Further parses a README's first section's data, so that it can more easily
    * be processed by React components.  This only keeps <p> tag content in the
-   * "first" property of the readme Object.
+   * "first" property of the readme Object, as well as extracts all of links in
+   * it.
    *
    * @param {Object} readme - The initial, unfinished readme data after parsing
    *  a README.
-   * @returns {{ first: String }} An Object that contains the final version of
-   *  the first section.
+   * @returns {{ first: String, links: String[] }} An Object that contains the
+   *  final version of the first section and any found links in it.
    */
   function parseFirstSection(readme) {
     const newReadmeProperties = {};
 
-    newReadmeProperties.first = cleanFirstSection(readme.first);
+    const links = [];
+    let str = '';
+
+    const matches = readme.first.matchAll(/<p>.*?<\/p>/g);
+
+    for (const match of matches) {
+      if (match[0].includes('http')) {
+        const httpLink = match[0].slice(3, -4);
+        links.push(httpLink);
+      } else {
+        str += match[0];
+      }
+    }
+
+    newReadmeProperties.first = str;
+    newReadmeProperties.links = links;
 
     return newReadmeProperties;
   }
@@ -222,24 +238,6 @@ function parseReadme(filePath, repositoryName) {
     });
 
     return imgs;
-  }
-
-  /**
-   * Selects only the <p> tag content from a String.  The String is supposed to
-   * be a README's first section in HTML form.
-   *
-   * @param {String} text - A README's first section's raw HTML text.
-   * @returns {String} A String containing only <p> tags and their content.
-   */
-  function cleanFirstSection(text) {
-    const matches = text.matchAll(/<p>.*?<\/p>/g);
-
-    let str = '';
-    for (const match of matches) {
-      str += match[0];
-    }
-
-    return str;
   }
 }
 
