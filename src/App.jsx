@@ -1,24 +1,57 @@
 import { GlobalStyles } from '@mui/material';
+import { useCallback, useMemo, useState } from 'react';
 
 import About from '/src/components/About/About';
 import NavBar from '/src/components/NavBar/NavBar';
+import ProjectPage from '/src/components/ProjectPage/ProjectPage';
 import Projects from '/src/components/Projects/Projects';
 import Skills from '/src/components/Skills/Skills';
+
+import { AppContext } from '/src/contexts';
 
 import appStyles from '/src/appCss';
 
 // ==================================================
 
 function App() {
+  const [currentProject, setCurrentProject] = useState(null);
+
+  // --------------------------------------------------
+
+  const openProject = useCallback((project) => {
+    setCurrentProject(project);
+    window.scrollTo(0, 0);
+  }, []);
+
+  const closeProject = useCallback(() => {
+    setCurrentProject(null);
+    window.scrollTo(0, 0);
+  }, []);
+
+  // --------------------------------------------------
+
+  const appContextValues = useMemo(
+    () => ({ openProject, closeProject }),
+    [openProject, closeProject]
+  );
+
+  // --------------------------------------------------
+
   return (
     <>
       <GlobalStyles styles={appStyles} />
-      <NavBar />
-      <main>
-        <About />
-        <Skills />
-        <Projects />
-      </main>
+      <AppContext.Provider value={appContextValues}>
+        <NavBar />
+        {currentProject ? (
+          <ProjectPage project={currentProject} />
+        ) : (
+          <main>
+            <About />
+            <Skills />
+            <Projects />
+          </main>
+        )}
+      </AppContext.Provider>
     </>
   );
 }
