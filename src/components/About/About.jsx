@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { useEffect, useState } from 'react';
 
@@ -13,9 +14,40 @@ function About() {
   }, []);
 
   return (
-    <Container id="about" className="About" component="section">
+    <Container
+      id="about"
+      className="About flex-center"
+      component="section"
+      sx={{
+        flexDirection: 'column',
+      }}
+    >
       <h1>About</h1>
-      <p>{text}</p>
+      <Box
+        className="flex-center"
+        sx={{
+          background: 'url("/src/assets/cardboard_box.svg") center no-repeat',
+          backgroundSize: 'auto 60em',
+          height: '60em',
+          width: '100%',
+        }}
+      >
+        <Box
+          className="flex-center"
+          component="article"
+          sx={{
+            height: '30em',
+            width: '30em',
+            padding: '2em',
+            border: '0.5em solid black',
+            borderRadius: '2em',
+            boxShadow: '0 0 1.5em black',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          }}
+        >
+          <p>{text}</p>
+        </Box>
+      </Box>
     </Container>
   );
 }

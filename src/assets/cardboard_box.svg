@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   sodipodi:docname="cardboard box 2.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.3255048"
+     inkscape:cx="76.291674"
+     inkscape:cy="65.77267"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="manual trace"
+     style="display:inline;fill:#5a3a23;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+     sodipodi:insensitive="true"
+     transform="matrix(0.16176636,0,0,0.16176636,-18.662048,-18.787857)">
+    <rect
+       style="display:inline;fill:#a46a37;fill-opacity:1;stroke:#5a3a23;stroke-width:9.91043;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6"
+       width="447.35208"
+       height="453.53119"
+       x="287.3205"
+       y="285.00867" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#5a3a23;stroke-width:10.0948;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5"
+       width="349.74408"
+       height="355.9184"
+       x="337.12796"
+       y="334.0408" />
+    <path
+       id="path6"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#5a3a23;stroke-width:10;stroke-dasharray:none;stroke-opacity:1"
+       d="m 287.32031,285.00781 49.8086,49.03321 z m 447.35157,0 -47.80079,49.03321 z m -397.54297,404.95117 -49.8086,48.58008 z m 349.74218,0 47.80079,48.58008 z" />
+    <path
+       style="display:inline;fill:#a46a37;fill-opacity:1;stroke:#5a3a23;stroke-width:10;stroke-dasharray:none;stroke-opacity:1"
+       d="M 512.00002,334.0408 V 689.95923"
+       id="path191" />
+    <g
+       id="layer2"
+       inkscape:label="flap"
+       style="display:inline"
+       inkscape:groupmode="layer">
+      <path
+         style="display:inline;fill:#e1a260;fill-opacity:1;stroke:#5a3a23;stroke-width:10;stroke-dasharray:none;stroke-opacity:1"
+         d="M 287.3205,285.00867 276.26834,121.14193 h 469.4564 l -11.05216,163.86674 z"
+         id="path12"
+         sodipodi:nodetypes="ccccc"
+         inkscape:transform-center-x="1.00346"
+         inkscape:transform-center-y="-308.9247"
+         inkscape:tile-cx="510.99654"
+         inkscape:tile-cy="511.77426"
+         inkscape:tile-w="480.15358"
+         inkscape:tile-h="173.86674"
+         inkscape:tile-x0="270.91975"
+         inkscape:tile-y0="116.14193" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#path12"
+         xlink:href="#path12"
+         id="use177"
+         inkscape:transform-center-x="1.00346"
+         inkscape:transform-center-y="-308.9247" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#path12"
+         xlink:href="#path12"
+         transform="rotate(90,510.99654,511.77426)"
+         id="use178"
+         inkscape:transform-center-x="-308.9247"
+         inkscape:transform-center-y="-1.00346" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#path12"
+         xlink:href="#path12"
+         transform="rotate(180,510.99654,511.77426)"
+         id="use179"
+         inkscape:transform-center-x="-1.00346"
+         inkscape:transform-center-y="308.9247" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#path12"
+         xlink:href="#path12"
+         transform="rotate(-90,510.99654,511.77426)"
+         id="use180"
+         inkscape:transform-center-x="308.9247"
+         inkscape:transform-center-y="1.00346" />
+    </g>
+  </g>
+</svg>
