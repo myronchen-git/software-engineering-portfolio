@@ -1,27 +1,22 @@
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
-import SkillCard from './components/SkillCard';
+import SkillCategory from './components/SkillCategory';
 import skills from '/portfolio_info/skills.json';
 
 // ==================================================
 
 function Skills() {
   return (
-    <Container id="skills" className="Skills" component="section">
+    <Box id="skills" className="Skills" component="section">
       <h1>Skills</h1>
-      {Object.entries(skills).map(([category, names]) => (
-        <article key={category}>
-          <h2>{category}</h2>
-          <ul>
-            {names.map((name) => (
-              <li key={name}>
-                <SkillCard name={name} />
-              </li>
-            ))}
-          </ul>
-        </article>
-      ))}
-    </Container>
+      <Box component="ul">
+        {Object.entries(skills).map(([category, names]) => (
+          <Box key={category} component="li">
+            <SkillCategory category={category} names={names} />
+          </Box>
+        ))}
+      </Box>
+    </Box>
   );
 }
 
