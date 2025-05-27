@@ -1,4 +1,5 @@
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import { useEffect, useState } from 'react';
 
 import ProjectCard from './components/ProjectCard';
@@ -31,9 +32,23 @@ function Projects() {
   return (
     <Container id="projects" className="Projects" component="section">
       <h1>Projects</h1>
-      {projects.map((project) => (
-        <ProjectCard key={project.projectName} project={project} />
-      ))}
+      <Grid
+        component="ul"
+        container
+        rowSpacing={4}
+        sx={{ listStyleType: 'none' }}
+      >
+        {projects.map((project) => (
+          <Grid
+            key={project.projectName}
+            className="flex-center"
+            component="li"
+            size={{ xs: 12, lg: 6 }}
+          >
+            <ProjectCard project={project} />
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 }
