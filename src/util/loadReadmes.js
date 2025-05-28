@@ -176,7 +176,7 @@ function parseReadme(filePath, repositoryName) {
     }
   }
 
-  const readmeFirstSectionParts = parseFirstSection(sections);
+  const readmeFirstSectionParts = parseFirstSection(sections.first);
   const imgs = getImgs();
 
   sections.first = readmeFirstSectionParts.first;
@@ -188,18 +188,18 @@ function parseReadme(filePath, repositoryName) {
    * "first" property of the readme Object, as well as extracts all of links in
    * it.
    *
-   * @param {Object} readme - The initial, unfinished readme data after parsing
+   * @param {String} text - The initial, raw first section text after parsing
    *  a README.
    * @returns {{ first: String, links: String[] }} An Object that contains the
    *  final version of the first section and any found links in it.
    */
-  function parseFirstSection(readme) {
+  function parseFirstSection(text) {
     const newReadmeProperties = {};
 
     const links = [];
     let str = '';
 
-    const matches = readme.first.matchAll(/<p>.*?<\/p>/g);
+    const matches = text.matchAll(/<p>.*?<\/p>/g);
 
     for (const match of matches) {
       if (match[0].includes('http')) {
