@@ -1,6 +1,7 @@
-import { GlobalStyles } from '@mui/material';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import { useCallback, useMemo, useState } from 'react';
 
+import { styled } from '@mui/material/styles';
 import About from '/src/components/About/About';
 import NavBar from '/src/components/NavBar/NavBar';
 import ProjectPage from '/src/components/ProjectPage/ProjectPage';
@@ -37,6 +38,8 @@ function App() {
 
   // --------------------------------------------------
 
+  const Main = styled('main')({ flexDirection: 'column' });
+
   return (
     <>
       <GlobalStyles styles={appStyles} />
@@ -45,11 +48,11 @@ function App() {
         {currentProject ? (
           <ProjectPage project={currentProject} />
         ) : (
-          <main>
+          <Main className="flex-center">
             <About />
             <Skills />
             <Projects />
-          </main>
+          </Main>
         )}
       </AppContext.Provider>
     </>

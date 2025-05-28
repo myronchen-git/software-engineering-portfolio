@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 import SkillCategory from './components/SkillCategory';
 import skills from '/portfolio_info/skills.json';
@@ -7,16 +8,16 @@ import skills from '/portfolio_info/skills.json';
 
 function Skills() {
   return (
-    <Box id="skills" className="Skills" component="section">
+    <Container id="skills" className="Skills" component="section">
       <h1>Skills</h1>
-      <Box component="ul">
+      <Box component="ul" sx={{ listStyleType: 'none' }}>
         {Object.entries(skills).map(([category, names]) => (
           <Box key={category} component="li">
             <SkillCategory category={category} names={names} />
           </Box>
         ))}
       </Box>
-    </Box>
+    </Container>
   );
 }
 
