@@ -180,6 +180,8 @@ function parseReadme(filePath, repositoryName) {
   const imgs = getImgs();
 
   sections.first = readmeFirstSectionParts.first;
+  sections['Tech Stack'] = parseTechStack(sections['Tech Stack']);
+
   return { projectName, sections, links: readmeFirstSectionParts.links, imgs };
 
   /**
@@ -220,10 +222,10 @@ function parseReadme(filePath, repositoryName) {
    * Gets data from the indexImages.json file from within readme_files and
    * changes the src path to be from the project root.
    *
-   * @returns {Promise<{
-   *  primary: { src: String, alt: String },
-   *  all: { src: String, alt: String }[]
-   *  }>} A list of image data containing src and alt attributes.  src path is
+   * @returns {{
+   *    primary: { src: String, alt: String },
+   *    all: { src: String, alt: String }[]
+   *  }} A list of image data containing src and alt attributes.  src path is
    *  relative to project root.  The primary key is for the primary image that
    *  will be used to represent the project.  The all key is for all images that
    *  will be used to describe the project, in order of presentation.
@@ -240,6 +242,39 @@ function parseReadme(filePath, repositoryName) {
 
     return imgs;
   }
+}
+
+/**
+ * Further parses a README's Tech Stack data, so that it can more easily be
+ * processed by React components.  Instead of saving an HTML String, this
+ * function returns an Object to save.
+ *
+ * @param {String} text - Raw HTML String for the tech stack section.
+ * @returns {{ subsection: String[] }} Tech Stack subsections as keys and
+ *  subsection items in an Array as values.
+ */
+function parseTechStack(text) {
+  const matches = text.matchAll(/<h3>(.*?)<\/h3><ul>(.*?)<\/ul>/g);
+
+  // Puts the sections as keys with Strings, of items in <li> tags, as values.
+  const techStack = [...matches].reduce((obj, arr) => {
+    obj[arr[1]] = arr[2];
+    return obj;
+  }, {});
+
+  // Transforms the String of <li> tags into an Array.
+  for (const section in techStack) {
+    const matches = techStack[section].matchAll(/<li>(.*?)<\/li>/g);
+
+    const sectionItems = [...matches].reduce((list, arr) => {
+      list.push(arr[1]);
+      return list;
+    }, []);
+
+    techStack[section] = sectionItems;
+  }
+
+  return techStack;
 }
 
 /**
