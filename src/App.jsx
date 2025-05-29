@@ -44,15 +44,17 @@ function App() {
     <>
       <GlobalStyles styles={appStyles} />
       <AppContext.Provider value={appContextValues}>
-        <NavBar />
         {currentProject ? (
           <ProjectPage project={currentProject} />
         ) : (
-          <Main className="flex-center">
-            <About />
-            <Skills />
-            <Projects />
-          </Main>
+          <>
+            <NavBar />
+            <Main className="flex-center">
+              <About />
+              <Skills />
+              <Projects />
+            </Main>
+          </>
         )}
       </AppContext.Provider>
     </>
