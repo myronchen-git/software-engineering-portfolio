@@ -19,7 +19,8 @@ function SkillCategory({ category, names }) {
       <Box
         className="flex-center"
         sx={{
-          background: 'url("/src/assets/cardboard_box.svg") center no-repeat',
+          background:
+            'url("/src/assets/cardboard_box_top.svg") center no-repeat',
           backgroundSize: 'auto 60em',
           height: '60em',
           width: '100%',
