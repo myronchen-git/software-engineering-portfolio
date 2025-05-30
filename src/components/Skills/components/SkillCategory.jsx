@@ -9,7 +9,7 @@ import SkillCard from './SkillCard';
 
 function SkillCategory({ category, names }) {
   const Article = styled('article')({
-    padding: '2em',
+    margin: '4em 0',
     flexDirection: 'column',
     '& ul': { listStyleType: 'none' },
   });
