@@ -5,6 +5,9 @@ export default {
   'main:not(.ProjectPage) > section': {
     margin: '5em 0',
   },
+  'main > section': {
+    scrollMarginTop: '5em',
+  },
   '.flex-center': {
     display: 'flex',
     alignItems: 'center',
