@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import SkillCard from './SkillCard';
 
@@ -15,7 +16,9 @@ function SkillCategory({ category, names }) {
 
   return (
     <Article className="SkillCategory flex-center">
-      <h2>{category}</h2>
+      <Typography variant="h2" component="h2">
+        {category}
+      </Typography>
       <Box
         className="flex-center"
         sx={{

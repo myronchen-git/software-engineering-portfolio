@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 
 import file from '/portfolio_info/about.txt';
@@ -22,7 +23,9 @@ function About() {
         flexDirection: 'column',
       }}
     >
-      <h1>About</h1>
+      <Typography variant="h1" component="h1">
+        About
+      </Typography>
       <Box
         className="flex-center"
         sx={{

@@ -1,5 +1,6 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 
 import ProjectCard from './components/ProjectCard';
@@ -31,7 +32,9 @@ function Projects() {
 
   return (
     <Container id="projects" className="Projects" component="section">
-      <h1>Projects</h1>
+      <Typography variant="h1" component="h1">
+        Projects
+      </Typography>
       <Grid
         component="ul"
         container
