@@ -24,14 +24,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="11.313709"
-     inkscape:cx="22.715805"
-     inkscape:cy="18.42897"
+     inkscape:cx="19.710601"
+     inkscape:cy="14.805048"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1" />
   <g
@@ -57,12 +58,10 @@
        id="path2"
        inkscape:transform-center-x="-3.906003"
        inkscape:transform-center-y="-7.2093915" />
-    <rect
-       style="fill:#e1a260;fill-opacity:1;stroke:#5a3a23;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+    <path
        id="rect2"
-       width="31.134199"
-       height="14.297483"
-       x="8.4329004"
-       y="4.7496309" />
+       style="fill:#e1a260;stroke:#5a3a23"
+       d="m 7.8759851,4.4507967 32.2480299,-6e-7 L 39.5671,19.047114 H 8.4329004 Z"
+       sodipodi:nodetypes="ccccc" />
   </g>
 </svg>
