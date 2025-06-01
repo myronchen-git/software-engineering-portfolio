@@ -6,7 +6,7 @@ export default {
     margin: '5em 0',
   },
   'main > section': {
-    scrollMarginTop: '5em',
+    scrollMarginTop: '6em',
   },
   '.flex-center': {
     display: 'flex',

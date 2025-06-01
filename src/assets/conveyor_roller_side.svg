@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="conveyor roller side.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="48.9375"
+     inkscape:cx="6.9680715"
+     inkscape:cy="8"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch12">
+      <stop
+         style="stop-color:#dad9d9;stop-opacity:1;"
+         offset="0"
+         id="stop12" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="display:inline;fill:#d9dad9;fill-opacity:1;stroke:#a5a7a5;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1"
+       cx="8"
+       cy="8"
+       r="7.75" />
+    <rect
+       style="display:inline;mix-blend-mode:normal;fill:#0047ab;fill-opacity:1;stroke:#002047;stroke-width:0.5;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="15.5"
+       height="14"
+       x="0.25"
+       y="1"
+       sodipodi:insensitive="true" />
+    <rect
+       style="display:inline;fill:#0047ab;fill-opacity:1;stroke:none;stroke-width:0.57091;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="16"
+       height="13.5"
+       x="0"
+       y="1.25" />
+    <path
+       sodipodi:type="star"
+       style="display:inline;fill:#d9dad9;fill-opacity:1;stroke:#a5a7a5;stroke-width:1.05547;stroke-dasharray:none;stroke-opacity:1"
+       id="path2"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="8"
+       sodipodi:cy="8"
+       sodipodi:r1="2.4375"
+       sodipodi:r2="2.4375"
+       sodipodi:arg1="3.1415927"
+       sodipodi:arg2="4.1887902"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 5.5625,7.9999999 1.21875,-2.1109368 2.4375001,0 L 10.4375,8 l -1.2187501,2.110937 -2.4374999,0 z"
+       transform="matrix(0.4737233,0,0,0.4737233,4.2102136,4.2102136)" />
+  </g>
+</svg>

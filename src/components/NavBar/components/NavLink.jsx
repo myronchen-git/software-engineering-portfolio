@@ -8,9 +8,6 @@ const NavLink = styled(Link)({
   margin: '1em',
   padding: '1em',
   textDecoration: 'none',
-  '&:hover': {
-    backgroundColor: '#c0a78c',
-  },
 });
 
 // ==================================================

@@ -14,15 +14,32 @@ function NavBar() {
 
   return (
     <AppBar className="NavBar" position="sticky" component="nav" sx={styles}>
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Toolbar sx={{ height: '5em', justifyContent: 'space-between' }}>
         <a href="/">
           <img src={logo} className="logo" alt="logo" width="32" />
         </a>
-        <Box>
+        <Box
+          sx={{
+            background:
+              'url("/src/assets/conveyor_roller_side.svg") bottom/8px repeat-x',
+          }}
+        >
           {sections.map((section) => (
-            <NavLink key={section} href={`#${section.toLowerCase()}`}>
-              {section}
-            </NavLink>
+            <Box
+              key={section}
+              sx={{
+                display: 'inline-block',
+                height: '4.5em',
+                paddingTop: '1em',
+                '&:hover': {
+                  background:
+                    'url("/src/assets/cardboard_box_side.svg") ' +
+                    'center 90%/25% no-repeat',
+                },
+              }}
+            >
+              <NavLink href={`#${section.toLowerCase()}`}>{section}</NavLink>
+            </Box>
           ))}
         </Box>
       </Toolbar>
