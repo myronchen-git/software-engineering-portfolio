@@ -19,6 +19,7 @@ function About() {
       id="about"
       className="About flex-center"
       component="section"
+      disableGutters
       sx={{
         flexDirection: 'column',
       }}

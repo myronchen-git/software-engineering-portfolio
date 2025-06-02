@@ -9,7 +9,12 @@ import skills from '/portfolio_info/skills.json';
 
 function Skills() {
   return (
-    <Container id="skills" className="Skills" component="section">
+    <Container
+      id="skills"
+      className="Skills"
+      disableGutters
+      component="section"
+    >
       <Typography variant="h1" component="h1">
         Skills
       </Typography>

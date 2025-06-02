@@ -31,7 +31,12 @@ function Projects() {
   }, []);
 
   return (
-    <Container id="projects" className="Projects" component="section">
+    <Container
+      id="projects"
+      className="Projects"
+      disableGutters
+      component="section"
+    >
       <Typography variant="h1" component="h1">
         Projects
       </Typography>

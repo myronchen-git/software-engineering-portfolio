@@ -1,7 +1,8 @@
+import Box from '@mui/material/Box';
 import GlobalStyles from '@mui/material/GlobalStyles';
+import { styled } from '@mui/material/styles';
 import { useCallback, useMemo, useState } from 'react';
 
-import { styled } from '@mui/material/styles';
 import About from '/src/components/About/About';
 import NavBar from '/src/components/NavBar/NavBar';
 import ProjectPage from '/src/components/ProjectPage/ProjectPage';
@@ -50,9 +51,19 @@ function App() {
           <>
             <NavBar />
             <Main className="flex-center">
-              <About />
-              <Skills />
-              <Projects />
+              <Box
+                sx={{
+                  width: '100%',
+                  padding: '5em 0',
+                  background:
+                    'url("/src/assets/conveyor_roller_top.svg"' +
+                    ') center repeat-y',
+                }}
+              >
+                <About />
+                <Skills />
+                <Projects />
+              </Box>
             </Main>
           </>
         )}
