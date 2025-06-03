@@ -1,32 +1,23 @@
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 
 import file from '/portfolio_info/about.txt';
+import MainSectionsContainer from '/src/components/_common/MainSectionsContainer';
+import MainSectionsHeading1 from '/src/components/_common/MainSectionsHeading1';
 
 // ==================================================
 
 function About() {
   const [text, setText] = useState(null);
+  const sectionName = 'About';
 
   useEffect(() => {
     fetch(file).then((raw) => setText(raw.text()));
   }, []);
 
   return (
-    <Container
-      id="about"
-      className="About flex-center"
-      component="section"
-      disableGutters
-      sx={{
-        flexDirection: 'column',
-      }}
-    >
-      <Typography variant="h1" component="h1">
-        About
-      </Typography>
+    <MainSectionsContainer sectionName={sectionName}>
+      <MainSectionsHeading1>{sectionName}</MainSectionsHeading1>
       <Box
         className="flex-center"
         sx={{
@@ -53,7 +44,7 @@ function About() {
           <p>{text}</p>
         </Box>
       </Box>
-    </Container>
+    </MainSectionsContainer>
   );
 }
 

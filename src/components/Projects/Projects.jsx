@@ -1,14 +1,15 @@
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 
 import ProjectCard from './components/ProjectCard';
+import MainSectionsContainer from '/src/components/_common/MainSectionsContainer';
+import MainSectionsHeading1 from '/src/components/_common/MainSectionsHeading1';
 
 // ==================================================
 
 function Projects() {
   const [projects, setProjects] = useState([]);
+  const sectionName = 'Projects';
 
   useEffect(() => {
     // Dynamically import all JSON files from the folder.  Path argument has to
@@ -31,21 +32,9 @@ function Projects() {
   }, []);
 
   return (
-    <Container
-      id="projects"
-      className="Projects"
-      disableGutters
-      component="section"
-    >
-      <Typography variant="h1" component="h1">
-        Projects
-      </Typography>
-      <Grid
-        component="ul"
-        container
-        rowSpacing={4}
-        sx={{ listStyleType: 'none' }}
-      >
+    <MainSectionsContainer sectionName={sectionName}>
+      <MainSectionsHeading1>{sectionName}</MainSectionsHeading1>
+      <Grid component="ul" container spacing={4} sx={{ listStyleType: 'none' }}>
         {projects.map((project) => (
           <Grid
             key={project.projectName}
@@ -57,7 +46,7 @@ function Projects() {
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </MainSectionsContainer>
   );
 }
 

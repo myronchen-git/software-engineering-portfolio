@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 
 import SkillCard from './SkillCard';
+import MainSectionsHeading2 from '/src/components/_common/MainSectionsHeading2';
 
 // ==================================================
 
@@ -11,14 +11,13 @@ function SkillCategory({ category, names }) {
   const Article = styled('article')({
     margin: '4em 0',
     flexDirection: 'column',
+    '& > *:not(:last-child)': { marginBottom: '2em' },
     '& ul': { listStyleType: 'none' },
   });
 
   return (
     <Article className="SkillCategory flex-center">
-      <Typography variant="h2" component="h2">
-        {category}
-      </Typography>
+      <MainSectionsHeading2>{category}</MainSectionsHeading2>
       <Box
         className="flex-center"
         sx={{

@@ -1,31 +1,26 @@
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 
 import SkillCategory from './components/SkillCategory';
 import skills from '/portfolio_info/skills.json';
+import MainSectionsContainer from '/src/components/_common/MainSectionsContainer';
+import MainSectionsHeading1 from '/src/components/_common/MainSectionsHeading1';
 
 // ==================================================
 
 function Skills() {
+  const sectionName = 'Skills';
+
   return (
-    <Container
-      id="skills"
-      className="Skills"
-      disableGutters
-      component="section"
-    >
-      <Typography variant="h1" component="h1">
-        Skills
-      </Typography>
-      <Box component="ul" sx={{ listStyleType: 'none' }}>
+    <MainSectionsContainer sectionName={sectionName}>
+      <MainSectionsHeading1>{sectionName}</MainSectionsHeading1>
+      <Box component="ul" sx={{ width: '100%', listStyleType: 'none' }}>
         {Object.entries(skills).map(([category, names]) => (
           <Box key={category} component="li">
             <SkillCategory category={category} names={names} />
           </Box>
         ))}
       </Box>
-    </Container>
+    </MainSectionsContainer>
   );
 }
 
