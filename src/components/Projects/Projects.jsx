@@ -34,7 +34,12 @@ function Projects() {
   return (
     <MainSectionsContainer sectionName={sectionName}>
       <MainSectionsHeading1>{sectionName}</MainSectionsHeading1>
-      <Grid component="ul" container spacing={4} sx={{ listStyleType: 'none' }}>
+      <Grid
+        component="ul"
+        container
+        spacing={4}
+        sx={{ width: '100%', listStyleType: 'none' }}
+      >
         {projects.map((project) => (
           <Grid
             key={project.projectName}
