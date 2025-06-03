@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import { styled } from '@mui/material/styles';
 import { useCallback, useMemo, useState } from 'react';
 
 import About from '/src/components/About/About';
@@ -39,8 +38,6 @@ function App() {
 
   // --------------------------------------------------
 
-  const Main = styled('main')({ flexDirection: 'column' });
-
   return (
     <>
       <GlobalStyles styles={appStyles} />
@@ -50,7 +47,7 @@ function App() {
         ) : (
           <>
             <NavBar />
-            <Main className="flex-center">
+            <main>
               <Box
                 sx={{
                   width: '100%',
@@ -64,7 +61,7 @@ function App() {
                 <Skills />
                 <Projects />
               </Box>
-            </Main>
+            </main>
           </>
         )}
       </AppContext.Provider>
