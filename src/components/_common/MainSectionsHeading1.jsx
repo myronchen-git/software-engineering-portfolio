@@ -11,6 +11,7 @@ function MainSectionsHeading1({ children }) {
       sx={{
         width: { xs: 'stretch', sm: 'fit-content' },
         padding: { xs: '6em 0', sm: '6em' },
+        backgroundColor: 'primary.main',
       }}
     >
       <Typography variant="h1">{children}</Typography>

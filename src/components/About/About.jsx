@@ -38,7 +38,7 @@ function About() {
             border: '0.5em solid black',
             borderRadius: '2em',
             boxShadow: '0 0 1.5em black',
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backgroundColor: 'primary.main',
           }}
         >
           <p>{text}</p>

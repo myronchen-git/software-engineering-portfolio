@@ -30,6 +30,7 @@ function ProjectCard({ project }) {
           border: '0.25em solid black',
           borderRadius: '1em',
           boxShadow: '0 0 0.75em black',
+          backgroundColor: 'primary.main',
         }}
       >
         <CardActionArea onClick={() => openProject(project)}>

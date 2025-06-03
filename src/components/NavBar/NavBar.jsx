@@ -13,7 +13,13 @@ function NavBar() {
   const styles = { '& img.logo': { cursor: 'pointer' } };
 
   return (
-    <AppBar className="NavBar" position="sticky" component="nav" sx={styles}>
+    <AppBar
+      className="NavBar"
+      position="sticky"
+      component="nav"
+      color="secondary"
+      sx={styles}
+    >
       <Toolbar sx={{ height: '5em', justifyContent: 'space-between' }}>
         <a href="/">
           <img src={logo} className="logo" alt="logo" width="32" />

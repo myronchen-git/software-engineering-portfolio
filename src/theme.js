@@ -1,12 +1,11 @@
-import { blueGrey } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 // ==================================================
 
 const theme = createTheme({
   palette: {
-    primary: { main: blueGrey['A100'] },
-    secondary: { main: '#F0F8FF' },
+    primary: { main: '#F0F8FF' }, // alice blue
+    secondary: { main: '#E0E0E0' }, // steel
   },
 });
 

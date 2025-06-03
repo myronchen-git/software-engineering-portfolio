@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import GlobalStyles from '@mui/material/GlobalStyles';
+import { styled } from '@mui/material/styles';
 import { useCallback, useMemo, useState } from 'react';
 
 import About from '/src/components/About/About';
@@ -38,6 +39,10 @@ function App() {
 
   // --------------------------------------------------
 
+  const Main = styled('main')(({ theme }) => ({
+    backgroundColor: theme.palette.primary.main,
+  }));
+
   return (
     <>
       <GlobalStyles styles={appStyles} />
@@ -47,7 +52,7 @@ function App() {
         ) : (
           <>
             <NavBar />
-            <main>
+            <Main>
               <Box
                 sx={{
                   width: '100%',
@@ -61,7 +66,7 @@ function App() {
                 <Skills />
                 <Projects />
               </Box>
-            </main>
+            </Main>
           </>
         )}
       </AppContext.Provider>
