@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import H2 from './H2';
+import headingSizes from './projectPageHeadingStyles';
 
 // ==================================================
 
@@ -21,7 +22,9 @@ function ProjectTechStack({ project }) {
         <Grid container spacing={2} component="ul">
           {Object.keys(techStackSection).map((subsectionName) => (
             <Grid key={subsectionName} component="li" size={{ xs: 12, md: 4 }}>
-              <Typography variant="h3">{subsectionName}</Typography>
+              <Typography component="h3" sx={{ typography: headingSizes.h3 }}>
+                {subsectionName}
+              </Typography>
               <ul>
                 {techStackSection[subsectionName].map((item) => (
                   <li key={item}>{item}</li>

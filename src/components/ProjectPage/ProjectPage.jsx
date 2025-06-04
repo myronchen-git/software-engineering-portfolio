@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import HorizontalLine from './components/HorizontalLine';
 import ProjectFirstSection from './components/ProjectFirstSection';
 import ProjectImages from './components/ProjectImages';
+import headingSizes from './components/projectPageHeadingStyles';
 import ProjectRestOfSections from './components/ProjectRestOfSections';
 import ProjectTechStack from './components/ProjectTechStack';
 import { AppContext } from '/src/contexts';
@@ -42,7 +43,7 @@ function ProjectPage({ project }) {
       <Typography
         component="h1"
         color="secondary.dark"
-        sx={{ typography: { xs: 'h2', sm: 'h1' } }}
+        sx={{ typography: headingSizes.h1 }}
       >
         {project.projectName}
       </Typography>
