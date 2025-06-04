@@ -1,6 +1,7 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 
 import HorizontalLine from './components/HorizontalLine';
@@ -21,8 +22,7 @@ function ProjectPage({ project }) {
       component="main"
       spacing="3em"
       sx={{
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: 'primary.main',
         '& ul': { listStyleType: 'none' },
       }}
     >
@@ -39,7 +39,13 @@ function ProjectPage({ project }) {
       >
         <ArrowBackIcon /> Back
       </Button>
-      <h1>{project.projectName}</h1>
+      <Typography
+        component="h1"
+        color="secondary.dark"
+        sx={{ typography: { xs: 'h2', sm: 'h1' } }}
+      >
+        {project.projectName}
+      </Typography>
       <ProjectImages images={project.imgs.all} />
       <ProjectFirstSection project={project} />
       <HorizontalLine />

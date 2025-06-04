@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import parse from 'html-react-parser';
 
@@ -22,15 +23,17 @@ function ProjectRestOfSections({ project }) {
     )
     .reduce((output, sectionName, currentIndex, filteredSections) => {
       output.push(
-        <Container
+        <Box
           key={sectionName}
           className={`ProjectPage__ProjectRestOfSections__${sectionName}`}
           component="section"
           sx={sectionName === 'Features' ? stylesObj : {}}
         >
-          <H2>{sectionName}</H2>
-          {parse(sections[sectionName])}
-        </Container>
+          <Container>
+            <H2>{sectionName}</H2>
+            {parse(sections[sectionName])}
+          </Container>
+        </Box>
       );
 
       if (currentIndex !== filteredSections.length - 1)

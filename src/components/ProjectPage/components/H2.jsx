@@ -1,11 +1,22 @@
-import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 // ==================================================
 
-const H2 = styled('h2')({
-  textDecorationLine: 'underline',
-  textDecorationThickness: '0.1em',
-});
+function H2({ children }) {
+  return (
+    <Typography
+      variant="h2"
+      gutterBottom
+      color="secondary.dark"
+      sx={{
+        textDecoration: 'underline dotted 0.1em',
+        fontWeight: 'bold',
+      }}
+    >
+      {children}
+    </Typography>
+  );
+}
 
 // ==================================================
 
