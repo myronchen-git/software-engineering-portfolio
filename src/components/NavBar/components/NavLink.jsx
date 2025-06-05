@@ -3,12 +3,12 @@ import { styled } from '@mui/material/styles';
 
 // ==================================================
 
-const NavLink = styled(Link)({
-  color: 'inherit',
+const NavLink = styled(Link)(({ theme }) => ({
+  color: theme.palette.secondary.dark,
   margin: '1em',
   padding: '1em',
   textDecoration: 'none',
-});
+}));
 
 // ==================================================
 
