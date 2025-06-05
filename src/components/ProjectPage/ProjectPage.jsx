@@ -7,9 +7,9 @@ import { useContext } from 'react';
 import HorizontalLine from './components/HorizontalLine';
 import ProjectFirstSection from './components/ProjectFirstSection';
 import ProjectImages from './components/ProjectImages';
-import headingSizes from './components/projectPageHeadingStyles';
 import ProjectRestOfSections from './components/ProjectRestOfSections';
 import ProjectTechStack from './components/ProjectTechStack';
+import { headingSizes } from '/src/constants';
 import { AppContext } from '/src/contexts';
 
 // ==================================================

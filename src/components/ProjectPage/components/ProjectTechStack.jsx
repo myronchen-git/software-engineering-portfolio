@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import H2 from './H2';
-import headingSizes from './projectPageHeadingStyles';
+import { headingSizes } from '/src/constants';
 
 // ==================================================
 

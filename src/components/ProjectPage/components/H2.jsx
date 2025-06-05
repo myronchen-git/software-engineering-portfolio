@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import headingSizes from './projectPageHeadingStyles';
+import { headingSizes } from '/src/constants';
 
 // ==================================================
 

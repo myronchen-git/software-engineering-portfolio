@@ -1,6 +1,8 @@
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
+import { headingSizes } from '/src/constants';
+
 // ==================================================
 
 function MainSectionsHeading2({ children }) {
@@ -14,7 +16,11 @@ function MainSectionsHeading2({ children }) {
         backgroundColor: 'primary.main',
       }}
     >
-      <Typography variant="h2" color="secondary.dark">
+      <Typography
+        component="h2"
+        color="secondary.dark"
+        sx={{ typography: headingSizes.h2 }}
+      >
         {children}
       </Typography>
     </Paper>
