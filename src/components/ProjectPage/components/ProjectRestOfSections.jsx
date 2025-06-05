@@ -13,6 +13,7 @@ function ProjectRestOfSections({ project }) {
   const stylesObj = {
     '& ul': { margin: '1em 0' },
     '& li, p': { textAlign: 'start' },
+    '& ul > li > p': { fontWeight: 'bold' },
     '& ul > li:not(:last-child)': { marginBottom: '3em' },
     '& ul ul': { marginLeft: '3em' },
   };
