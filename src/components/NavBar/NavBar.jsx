@@ -19,10 +19,13 @@ const sections = ['About', 'Skills', 'Projects'];
 
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lastClickedSection, setLastClickedSection] = useState(null);
 
   // --------------------------------------------------
 
   const styles = { '& img.logo': { cursor: 'pointer' } };
+  const navLinkCardBoardBoxBackground =
+    'url("/src/assets/cardboard_box_side.svg") center 90%/25% no-repeat';
 
   const handleMenuToggle = () => setIsMobileMenuOpen((prevState) => !prevState);
 
@@ -53,18 +56,23 @@ function NavBar() {
       {sections.map((section) => (
         <Box
           key={section}
-          sx={{
-            display: 'inline-block',
-            height: '4.5em',
-            paddingTop: '1em',
-            '&:hover': {
-              background:
-                'url("/src/assets/cardboard_box_side.svg") ' +
-                'center 90%/25% no-repeat',
+          sx={[
+            {
+              display: 'inline-block',
+              height: '4.5em',
+              paddingTop: '1em',
+              '&:hover': {
+                background: navLinkCardBoardBoxBackground,
+              },
             },
-          }}
+            section === lastClickedSection && {
+              background: navLinkCardBoardBoxBackground,
+            },
+          ]}
         >
-          <NavLink href={`#${section.toLowerCase()}`}>{section}</NavLink>
+          <div onClick={() => setLastClickedSection(section)}>
+            <NavLink href={`#${section.toLowerCase()}`}>{section}</NavLink>
+          </div>
         </Box>
       ))}
     </Box>
@@ -86,6 +94,7 @@ function NavBar() {
             <ListItemButton
               disableRipple
               href={`#${section.toLowerCase()}`}
+              onClick={() => setLastClickedSection(section)}
               sx={{ color: 'secondary.dark' }}
             >
               <ListItemText primary={section} />
