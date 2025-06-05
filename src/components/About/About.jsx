@@ -1,6 +1,9 @@
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import { useEffect, useState } from 'react';
 
+import { Typography } from '@mui/material';
 import file from '/portfolio_info/about.txt';
 import MainSectionsContainer from '/src/components/_common/MainSectionsContainer';
 import MainSectionsHeading1 from '/src/components/_common/MainSectionsHeading1';
@@ -28,12 +31,12 @@ function About() {
           width: '100%',
         }}
       >
-        <Box
+        <Card
           className="flex-center"
           component="article"
           sx={{
-            height: '30em',
-            width: '30em',
+            minHeight: '30em',
+            maxWidth: '30em',
             padding: '2em',
             border: '0.5em solid black',
             borderRadius: '2em',
@@ -41,8 +44,10 @@ function About() {
             backgroundColor: 'primary.main',
           }}
         >
-          <p>{text}</p>
-        </Box>
+          <CardContent>
+            <Typography variant="body1">{text}</Typography>
+          </CardContent>
+        </Card>
       </Box>
     </MainSectionsContainer>
   );
