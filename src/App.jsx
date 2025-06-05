@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import GlobalStyles from '@mui/material/GlobalStyles';
 import { styled } from '@mui/material/styles';
 import { useCallback, useMemo, useState } from 'react';
 
@@ -11,7 +10,7 @@ import Skills from '/src/components/Skills/Skills';
 
 import { AppContext } from '/src/contexts';
 
-import appStyles from '/src/appCss';
+import inputGlobalStyles from '/src/appCss';
 
 // ==================================================
 
@@ -45,7 +44,7 @@ function App() {
 
   return (
     <>
-      <GlobalStyles styles={appStyles} />
+      {inputGlobalStyles}
       <AppContext.Provider value={appContextValues}>
         {currentProject ? (
           <ProjectPage project={currentProject} />
