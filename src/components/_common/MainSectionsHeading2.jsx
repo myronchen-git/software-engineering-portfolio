@@ -14,7 +14,9 @@ function MainSectionsHeading2({ children }) {
         backgroundColor: 'primary.main',
       }}
     >
-      <Typography variant="h2">{children}</Typography>
+      <Typography variant="h2" color="secondary.dark">
+        {children}
+      </Typography>
     </Paper>
   );
 }
