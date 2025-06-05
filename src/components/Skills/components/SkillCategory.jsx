@@ -36,9 +36,10 @@ function SkillCategory({ category, names }) {
             height: '30em',
             width: '30em',
             padding: '2em',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
+            justifyItems: 'center',
             alignContent: 'space-around',
-            alignItems: 'space-between',
+            alignItems: 'center',
           }}
         >
           {names.map((name) => (
