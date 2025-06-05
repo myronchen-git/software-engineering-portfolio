@@ -11,8 +11,6 @@ function H2({ children }) {
       color="secondary.dark"
       sx={{
         typography: headingSizes.h2,
-        textDecoration: 'underline dotted 0.1em',
-        fontWeight: 'bold',
       }}
     >
       {children}

@@ -1,10 +1,10 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 
-import HorizontalLine from './components/HorizontalLine';
 import ProjectFirstSection from './components/ProjectFirstSection';
 import ProjectImages from './components/ProjectImages';
 import ProjectRestOfSections from './components/ProjectRestOfSections';
@@ -49,9 +49,13 @@ function ProjectPage({ project }) {
       </Typography>
       <ProjectImages images={project.imgs.all} />
       <ProjectFirstSection project={project} />
-      <HorizontalLine />
+      <div>
+        <Divider variant="middle" flexItem />
+      </div>
       <ProjectRestOfSections project={project} />
-      <HorizontalLine />
+      <div>
+        <Divider variant="middle" flexItem />
+      </div>
       <ProjectTechStack project={project} />
     </Stack>
   );

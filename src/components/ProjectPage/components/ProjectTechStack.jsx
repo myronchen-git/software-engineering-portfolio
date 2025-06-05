@@ -22,7 +22,11 @@ function ProjectTechStack({ project }) {
         <Grid container spacing={2} component="ul">
           {Object.keys(techStackSection).map((subsectionName) => (
             <Grid key={subsectionName} component="li" size={{ xs: 12, md: 4 }}>
-              <Typography component="h3" sx={{ typography: headingSizes.h3 }}>
+              <Typography
+                component="h3"
+                color="secondary.contrastText"
+                sx={{ typography: headingSizes.h3 }}
+              >
                 {subsectionName}
               </Typography>
               <ul>

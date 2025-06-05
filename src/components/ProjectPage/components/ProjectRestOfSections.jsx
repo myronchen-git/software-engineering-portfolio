@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 import parse from 'html-react-parser';
 
 import H2 from './H2';
-import HorizontalLine from './HorizontalLine';
 
 // ==================================================
 
@@ -37,7 +37,11 @@ function ProjectRestOfSections({ project }) {
       );
 
       if (currentIndex !== filteredSections.length - 1)
-        output.push(<HorizontalLine key={sectionName + '-hr'} />);
+        output.push(
+          <div key={sectionName + '-hr'}>
+            <Divider variant="middle" flexItem />
+          </div>
+        );
 
       return output;
     }, []);
