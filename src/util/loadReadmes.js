@@ -152,7 +152,7 @@ function parseReadme(filePath, repositoryName) {
   let sectionText = '';
 
   for (const line of htmlArray) {
-    if (line.startsWith('<h2>') && currentSection) {
+    if ((line.startsWith('<h2>') || line === '') && currentSection) {
       sections[currentSection] = sectionText;
       sectionText = '';
 
@@ -233,7 +233,13 @@ function parseReadme(filePath, repositoryName) {
   function getImgs() {
     const pathToDir = `${repositoriesPath}/${repositoryName}/readme_files/`;
 
-    const imgs = JSON.parse(readFileSync(pathToDir + 'indexImages.json'));
+    let imgs;
+    try {
+      imgs = JSON.parse(readFileSync(pathToDir + 'indexImages.json'));
+    } catch (err) {
+      console.error(err.message);
+      return {};
+    }
 
     imgs.primary.src = pathToDir + imgs.primary.src;
     imgs.all.forEach((img) => {
