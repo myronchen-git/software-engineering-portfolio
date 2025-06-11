@@ -47,7 +47,7 @@ function ProjectPage({ project }) {
       >
         {project.projectName}
       </Typography>
-      <ProjectImages images={project.imgs.all} />
+      {project?.imgs?.all ? <ProjectImages images={project.imgs.all} /> : null}
       <ProjectFirstSection project={project} />
       <div>
         <Divider variant="middle" flexItem />

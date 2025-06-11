@@ -26,20 +26,27 @@ function ProjectCard({ project }) {
       <Card
         component="article"
         sx={{
-          width: '15em',
+          maxWidth: '15em',
           border: '0.25em solid black',
           borderRadius: '1em',
           boxShadow: '0 0 0.75em black',
           backgroundColor: 'primary.main',
         }}
       >
-        <CardActionArea onClick={() => openProject(project)}>
-          <CardMedia
-            component="img"
-            alt={`${project.projectName} image`}
-            image={project.imgs.primary.src}
-            sx={{ height: '10em', objectPosition: 'top' }}
-          />
+        <CardActionArea
+          sx={{ minHeight: '17em' }}
+          onClick={() => openProject(project)}
+        >
+          {project?.imgs?.primary ? (
+            <CardMedia
+              component="img"
+              alt={`${project.projectName} image`}
+              image={project.imgs.primary.src}
+              sx={{ height: '10em', objectPosition: 'top' }}
+            />
+          ) : (
+            ''
+          )}
           <CardContent>
             <h4>{project.projectName}</h4>
             {parse(project.sections.first)}
