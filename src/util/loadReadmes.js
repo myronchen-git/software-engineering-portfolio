@@ -22,8 +22,10 @@ function loadReadmes() {
 
   // for each folder in repositories
   for (const repositoryName of repositoryNames) {
-    const filePath = `${repositoriesPath}/${repositoryName}/README.md`;
-    const readme = parseReadme(filePath, repositoryName);
+    const filePath = `${repositoriesPath}/${repositoryName}`;
+    const readme = parseReadme(`${filePath}/README.md`, repositoryName);
+    const metadata = JSON.parse(readFileSync(`${filePath}/metadata.json`));
+    Object.assign(readme, metadata);
     storeReadmeData(repositoryName, readme);
   }
 }

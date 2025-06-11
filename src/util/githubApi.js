@@ -44,6 +44,7 @@ async function getSelectedRepos(topicToGet) {
         name: repo.name,
         full_name: repo.full_name,
         owner: repo.owner.login,
+        created_at: repo.created_at,
       });
     }
 
@@ -96,6 +97,12 @@ async function retrieveReadmes(selectedRepos) {
     // Create readme file.
     try {
       writeFileSync(`${repoPath}/README.md`, readmeResult.value);
+      writeFileSync(
+        `${repoPath}/metadata.json`,
+        JSON.stringify({
+          created_at: selectedRepos[i].created_at,
+        })
+      );
     } catch (err) {
       console.warn(err.message);
     }

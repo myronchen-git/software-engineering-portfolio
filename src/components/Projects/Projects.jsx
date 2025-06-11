@@ -17,7 +17,7 @@ function Projects() {
     // default export from the JSON files, which are JSON Objects.
     const modules = import.meta.glob('/readmes/*.json', { import: 'default' });
 
-    async function loadAllJson() {
+    (async () => {
       const loadedData = [];
 
       for (const path in modules) {
@@ -25,10 +25,12 @@ function Projects() {
         loadedData.push(project);
       }
 
-      setProjects(loadedData);
-    }
+      loadedData.sort(
+        (a, b) => Date.parse(b.created_at) - Date.parse(a.created_at)
+      );
 
-    loadAllJson();
+      setProjects(loadedData);
+    })();
   }, []);
 
   return (
