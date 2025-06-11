@@ -10,7 +10,11 @@ import H2 from './H2';
 function ProjectRestOfSections({ project }) {
   const sections = project.sections;
 
-  const stylesObj = {
+  const overviewStylesObj = {
+    '& p': { textAlign: 'left', marginBottom: '1em' },
+  };
+
+  const featuresStylesObj = {
     '& ul': { margin: '1em 0' },
     '& li, p': { textAlign: 'start' },
     '& ul > li > p': { fontWeight: 'bold' },
@@ -28,7 +32,13 @@ function ProjectRestOfSections({ project }) {
           key={sectionName}
           className={`ProjectPage__ProjectRestOfSections__${sectionName}`}
           component="section"
-          sx={sectionName === 'Features' ? stylesObj : {}}
+          sx={
+            sectionName === 'Overview'
+              ? overviewStylesObj
+              : sectionName === 'Features'
+              ? featuresStylesObj
+              : {}
+          }
         >
           <Container>
             <H2>{sectionName}</H2>
