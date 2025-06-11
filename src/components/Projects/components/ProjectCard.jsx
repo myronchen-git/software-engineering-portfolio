@@ -31,6 +31,7 @@ function ProjectCard({ project }) {
           borderRadius: '1em',
           boxShadow: '0 0 0.75em black',
           backgroundColor: 'primary.main',
+          '&:hover, :active': { transform: 'scale(1.1)' },
         }}
       >
         <CardActionArea

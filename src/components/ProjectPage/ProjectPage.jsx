@@ -36,6 +36,8 @@ function ProjectPage({ project }) {
           position: 'fixed',
           top: '1em',
           left: '1em',
+          transition: 'transform 0.1s',
+          '&:hover, :active': { transform: 'scale(1.1)' },
         }}
       >
         <ArrowBackIcon /> Back
