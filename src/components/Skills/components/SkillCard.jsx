@@ -2,8 +2,6 @@ import { Box } from '@mui/material';
 
 // ==================================================
 
-const pathToIcons = '/portfolio_info/icons';
-
 function SkillCard({ name }) {
   return (
     <Box
@@ -19,7 +17,7 @@ function SkillCard({ name }) {
       }}
     >
       <Box sx={{ height: '3em', width: '3em' }}>
-        <img src={`${pathToIcons}/${name}.svg`} alt={`${name} icon`} />
+        <img src={`/brand_icons/${name}.svg`} alt={`${name} icon`} />
       </Box>
       {name}
     </Box>

@@ -25,7 +25,7 @@ function NavBar() {
 
   const styles = { '& img.logo': { cursor: 'pointer' } };
   const navLinkCardBoardBoxBackground =
-    'url("/src/assets/cardboard_box_side.svg") center 90%/25% no-repeat';
+    'url("/background_images/cardboard_box_side.svg") center 90%/25% no-repeat';
 
   const handleMenuToggle = () => setIsMobileMenuOpen((prevState) => !prevState);
 
@@ -50,7 +50,8 @@ function NavBar() {
       sx={{
         display: { xs: 'none', sm: 'initial' },
         background:
-          'url("/src/assets/conveyor_roller_side.svg") bottom/8px repeat-x',
+          'url("/background_images/conveyor_roller_side.svg") ' +
+          'bottom/8px repeat-x',
       }}
     >
       {sections.map((section) => (
