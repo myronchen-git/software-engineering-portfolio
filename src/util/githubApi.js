@@ -3,9 +3,11 @@
 import { Buffer } from 'node:buffer';
 import { mkdirSync, writeFileSync } from 'node:fs';
 
+import about from '/portfolio_info/about.json';
+
 // ==================================================
 
-const owner = 'myronchen-git';
+const owner = about.gitHubUsername;
 const topicToGet = 'showcase';
 const baseDestinationPath = './repositories';
 

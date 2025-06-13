@@ -15,12 +15,11 @@ import { useState } from 'react';
 
 import Logo from './components/Logo';
 import NavLink from './components/NavLink';
+import about from '/portfolio_info/about.json';
 
 // ==================================================
 
 const sections = ['About', 'Skills', 'Projects'];
-const linkedInUrl = 'https://www.linkedin.com/in/myron-w-chen/';
-const githubUrl = 'https://github.com/myronchen-git';
 
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -134,7 +133,7 @@ function NavBar() {
             </Grid>
             <Grid display="flex" justifyContent="center" alignItems="center">
               <IconButton
-                href={linkedInUrl}
+                href={about.linkedInUrl}
                 target="_blank"
                 rel="noreferrer"
                 size="large"
@@ -145,7 +144,7 @@ function NavBar() {
             </Grid>
             <Grid display="flex" justifyContent="center" alignItems="center">
               <IconButton
-                href={githubUrl}
+                href={about.githubUrl}
                 target="_blank"
                 rel="noreferrer"
                 size="large"

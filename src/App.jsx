@@ -1,7 +1,9 @@
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { useCallback, useMemo, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
+import aboutInfo from '/portfolio_info/about.json';
 import About from '/src/components/About/About';
 import NavBar from '/src/components/NavBar/NavBar';
 import ProjectPage from '/src/components/ProjectPage/ProjectPage';
@@ -44,6 +46,9 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>{aboutInfo.name}'s Portfolio</title>
+      </Helmet>
       {inputGlobalStyles}
       <AppContext.Provider value={appContextValues}>
         {currentProject ? (
