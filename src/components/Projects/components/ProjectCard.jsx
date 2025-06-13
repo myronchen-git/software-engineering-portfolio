@@ -4,14 +4,24 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import parse from 'html-react-parser';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { AppContext } from '/src/contexts';
+import { importProjectImage } from '/src/util/projectImageImporter';
 
 // ==================================================
 
 function ProjectCard({ project }) {
   const { openProject } = useContext(AppContext);
+  const [projectImage, setProjectImage] = useState(null);
+
+  useEffect(() => {
+    if (project?.imgs?.primary?.src) {
+      importProjectImage('/' + project.imgs.primary.src).then((image) =>
+        setProjectImage(image)
+      );
+    }
+  }, [project]);
 
   return (
     <Box
@@ -43,8 +53,14 @@ function ProjectCard({ project }) {
             <CardMedia
               component="img"
               alt={`${project.projectName} image`}
-              image={project.imgs.primary.src}
-              sx={{ height: '10em', objectPosition: 'top' }}
+              image={projectImage}
+              sx={{
+                height: '10em',
+                objectPosition: 'top',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
             />
           ) : (
             ''
