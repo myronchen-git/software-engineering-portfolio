@@ -1,4 +1,7 @@
 import Stack from '@mui/material/Stack';
+import { useEffect, useState } from 'react';
+
+import { importProjectImage } from '/src/util/projectImageImporter';
 
 // ==================================================
 
@@ -13,10 +16,20 @@ function ProjectImages({ images }) {
       }}
     >
       {images.map((img) => (
-        <img key={img.alt} src={img.src} alt={img.alt + ' image'} />
+        <ProjectImage key={img.alt} img={img} />
       ))}
     </Stack>
   );
+}
+
+function ProjectImage({ img }) {
+  const [projectImage, setProjectImage] = useState(null);
+
+  useEffect(() => {
+    importProjectImage('/' + img.src).then((image) => setProjectImage(image));
+  }, [img.src]);
+
+  return <img key={img.alt} src={projectImage} alt={img.alt + ' image'} />;
 }
 
 // ==================================================
