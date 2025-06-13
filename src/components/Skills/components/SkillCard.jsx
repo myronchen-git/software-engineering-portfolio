@@ -17,7 +17,7 @@ function SkillCard({ name }) {
       }}
     >
       <Box sx={{ height: '3em', width: '3em' }}>
-        <img src={`/brand_icons/${name}.svg`} alt={`${name} icon`} />
+        <img src={`./brand_icons/${name}.svg`} alt={`${name} icon`} />
       </Box>
       {name}
     </Box>

@@ -9,7 +9,7 @@ import logo from '/src/assets/logo.svg';
  */
 function Logo() {
   return (
-    <Link href="/" sx={{ display: 'flex', padding: '0.25em' }}>
+    <Link href="./" sx={{ display: 'flex', padding: '0.25em' }}>
       <img src={logo} className="logo" alt="logo" width="32" />
     </Link>
   );

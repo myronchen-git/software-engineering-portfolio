@@ -25,7 +25,7 @@ function About() {
         className="flex-center"
         sx={{
           background:
-            'url("/background_images/cardboard_box_top.svg") center no-repeat',
+            'url("./background_images/cardboard_box_top.svg") center no-repeat',
           backgroundSize: 'auto 60em',
           height: '60em',
           width: '100%',

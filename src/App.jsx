@@ -57,7 +57,7 @@ function App() {
                   width: '100%',
                   padding: '5em 0',
                   background:
-                    'url("/background_images/conveyor_roller_top.svg") ' +
+                    'url("./background_images/conveyor_roller_top.svg") ' +
                     'center repeat-y',
                 }}
               >

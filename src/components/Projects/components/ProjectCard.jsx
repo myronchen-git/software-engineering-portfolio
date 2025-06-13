@@ -28,7 +28,7 @@ function ProjectCard({ project }) {
       className="ProjectCard flex-center"
       sx={{
         background:
-          'url("/background_images/cardboard_box_top.svg") center no-repeat',
+          'url("./background_images/cardboard_box_top.svg") center no-repeat',
         backgroundSize: 'auto 30em',
         height: '30em',
         width: '30em',
