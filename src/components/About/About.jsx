@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 
-import { Typography } from '@mui/material';
 import file from '/portfolio_info/about.txt';
 import MainSectionsContainer from '/src/components/_common/MainSectionsContainer';
 import MainSectionsHeading1 from '/src/components/_common/MainSectionsHeading1';
