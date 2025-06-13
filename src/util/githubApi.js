@@ -3,7 +3,7 @@
 import { Buffer } from 'node:buffer';
 import { mkdirSync, writeFileSync } from 'node:fs';
 
-import about from '/portfolio_info/about.json';
+import about from '#portfolio_info/about.json' with { type: 'json' };
 
 // ==================================================
 
