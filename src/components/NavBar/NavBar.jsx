@@ -1,7 +1,10 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -16,6 +19,8 @@ import NavLink from './components/NavLink';
 // ==================================================
 
 const sections = ['About', 'Skills', 'Projects'];
+const linkedInUrl = 'https://www.linkedin.com/in/myron-w-chen/';
+const githubUrl = 'https://github.com/myronchen-git';
 
 function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -117,7 +122,40 @@ function NavBar() {
       sx={styles}
     >
       <Toolbar sx={{ height: '5em', justifyContent: 'space-between' }}>
-        <Logo />
+        <div>
+          <Grid container columns={3}>
+            <Grid
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              sx={{ marginRight: '1em' }}
+            >
+              <Logo />
+            </Grid>
+            <Grid display="flex" justifyContent="center" alignItems="center">
+              <IconButton
+                href={linkedInUrl}
+                target="_blank"
+                rel="noreferrer"
+                size="large"
+                aria-label="redirect"
+              >
+                <LinkedInIcon fontSize="inherit" />
+              </IconButton>
+            </Grid>
+            <Grid display="flex" justifyContent="center" alignItems="center">
+              <IconButton
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                size="large"
+                aria-label="redirect"
+              >
+                <GitHubIcon fontSize="inherit" />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </div>
         {menuIconElement}
         {regularMenu}
       </Toolbar>
